@@ -23,8 +23,8 @@ import PossibleGhosts from '~/components/PossibleGhosts.vue'
 }
 
 .heading {
-  margin: 0;
-  padding: 2px;
+  margin: 8px 0 0;
+  padding: 4px;
   text-align: center;
 }
 
