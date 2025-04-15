@@ -7,49 +7,62 @@ const evidencesStore = useEvidencesStore()
 </script>
 
 <template>
-  <div class="wrapper">
-    <button
-      v-for="evidence in evidences"
-      :class="['evidence', evidencesStore.evidences[evidence]]"
-      @click="
-        evidencesStore.$patch((state) => {
-          state.evidences[evidence] =
-            state.evidences[evidence] !== EvidenceStatus.positive
-              ? EvidenceStatus.positive
-              : EvidenceStatus.neutral
-        })
-      "
-      @contextmenu.prevent="
-        evidencesStore.$patch((state) => {
-          state.evidences[evidence] =
-            state.evidences[evidence] !== EvidenceStatus.negative
-              ? EvidenceStatus.negative
-              : EvidenceStatus.neutral
-        })
-      "
-      :key="evidence"
-    >
-      {{ evidence }}
-    </button>
+  <div>
+    <div class="label">Улики</div>
+    <div class="evidences">
+      <button
+        v-for="evidence in evidences"
+        :class="['evidence', evidencesStore.evidences[evidence]]"
+        @click="
+          evidencesStore.$patch((state) => {
+            state.evidences[evidence] =
+              state.evidences[evidence] !== EvidenceStatus.positive
+                ? EvidenceStatus.positive
+                : EvidenceStatus.neutral
+          })
+        "
+        @contextmenu.prevent="
+          evidencesStore.$patch((state) => {
+            state.evidences[evidence] =
+              state.evidences[evidence] !== EvidenceStatus.negative
+                ? EvidenceStatus.negative
+                : EvidenceStatus.neutral
+          })
+        "
+        :key="evidence"
+      >
+        {{ evidence }}
+      </button>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.wrapper {
+.label {
+  user-select: none;
+
+  padding: 4px;
+
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+}
+
+.evidences {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 2px;
-
-  padding: 4px;
 }
 
 .evidence {
   cursor: pointer;
   user-select: none;
 
-  padding: 12px;
+  padding: 12px 6px;
   border: none;
+
+  font-size: 9px;
 
   background-color: #ffffff80;
   background-image: linear-gradient(
@@ -68,6 +81,18 @@ const evidencesStore = useEvidencesStore()
 
   &.negative {
     background-color: #ff606080;
+  }
+
+  @media (width >= 375px) {
+    font-size: 11px;
+  }
+
+  @media (width >= 425px) {
+    font-size: 12px;
+  }
+
+  @media (width >= 768px) {
+    font-size: 16px;
   }
 
   @media (hover: hover) and (pointer: fine) {

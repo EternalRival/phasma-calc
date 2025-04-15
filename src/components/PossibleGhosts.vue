@@ -6,33 +6,45 @@ const evidenceState = useEvidencesStore()
 </script>
 
 <template>
-  <div class="wrapper">
-    <div
-      v-for="ghost in ghosts"
-      :key="ghost"
-      :class="['ghost', !evidenceState.possibleGhosts.includes(ghost) && 'transparent']"
-    >
-      {{ ghost }}
+  <div>
+    <div class="label">Призраки</div>
+    <div class="ghosts">
+      <div
+        v-for="ghost in ghosts"
+        :key="ghost"
+        :class="['ghost', !evidenceState.possibleGhosts.includes(ghost) && 'transparent']"
+      >
+        {{ ghost }}
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.wrapper {
+.label {
+  user-select: none;
+
+  padding: 4px;
+
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ghosts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(8, 1fr);
   gap: 2px;
   justify-content: center;
-
-  padding: 4px;
 }
 
 .ghost {
   user-select: none;
 
-  padding: 8px;
+  padding: 12px 6px;
 
+  font-size: 9px;
   text-align: center;
 
   opacity: 1;
@@ -51,9 +63,21 @@ const evidenceState = useEvidencesStore()
     opacity: 0.25;
   }
 
+  @media (width >= 375px) {
+    font-size: 11px;
+  }
+
+  @media (width >= 425px) {
+    font-size: 12px;
+  }
+
+  @media (width >= 768px) {
+    font-size: 16px;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      --glare-color: white;
+      --glare-color: #eee;
     }
   }
 }

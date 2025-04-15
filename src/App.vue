@@ -24,13 +24,23 @@ import PossibleGhosts from '~/components/PossibleGhosts.vue'
 
 .heading {
   margin: 0;
-  padding: 8px;
+  padding: 2px;
   text-align: center;
 }
 
 .app {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  padding: 2px;
+
+  @media (width >= 425px) {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  @media (width >= 768px) {
+    gap: 8px;
+    padding: 8px;
+  }
 }
 </style>

@@ -6,7 +6,7 @@ const evidencesStore = useEvidencesStore()
 </script>
 
 <template>
-  <div class="wrapper">
+  <div>
     <div class="label">Выберите сложность</div>
     <div class="diff-list">
       <button
@@ -22,14 +22,10 @@ const evidencesStore = useEvidencesStore()
 </template>
 
 <style scoped>
-.wrapper {
-  padding: 4px;
-}
-
 .label {
   user-select: none;
 
-  padding: 8px;
+  padding: 4px;
 
   font-size: large;
   font-weight: 600;
@@ -38,15 +34,23 @@ const evidencesStore = useEvidencesStore()
 
 .diff-list {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+
+  @media (width >= 425px) {
+    gap: 4px;
+  }
 }
 
 .diff-button {
   cursor: pointer;
   user-select: none;
 
-  padding: 8px;
+  padding: 12px 6px;
   border: none;
+
+  font-size: 9px;
 
   background-color: #ffffff80;
   background-image: linear-gradient(
@@ -61,6 +65,18 @@ const evidencesStore = useEvidencesStore()
 
   &.selected {
     background-color: #00ff0080;
+  }
+
+  @media (width >= 375px) {
+    font-size: 11px;
+  }
+
+  @media (width >= 425px) {
+    font-size: 12px;
+  }
+
+  @media (width >= 768px) {
+    font-size: 16px;
   }
 
   @media (hover: hover) and (pointer: fine) {
