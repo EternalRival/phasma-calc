@@ -8,10 +8,10 @@ const evidencesStore = useEvidencesStore()
 <template>
   <div>
     <div class="label">Сложность</div>
-    <div class="diff-list">
+    <div class="difference-list">
       <button
         v-for="(difficulty, i) in difficulties"
-        :class="['diff-button', evidencesStore.difficulty === difficulty && 'selected']"
+        :class="['difference-button', evidencesStore.difficulty === difficulty && 'selected']"
         @click="evidencesStore.$patch({ difficulty })"
         :disabled="i > 2"
         :key="difficulty"
@@ -33,7 +33,7 @@ const evidencesStore = useEvidencesStore()
   text-align: center;
 }
 
-.diff-list {
+.difference-list {
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
@@ -44,7 +44,7 @@ const evidencesStore = useEvidencesStore()
   }
 }
 
-.diff-button {
+.difference-button {
   cursor: pointer;
   user-select: none;
 

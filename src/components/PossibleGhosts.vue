@@ -10,11 +10,11 @@ const evidenceState = useEvidencesStore()
     <div class="label">Призраки</div>
     <div class="ghosts">
       <div
-        v-for="ghost in ghosts"
-        :key="ghost"
-        :class="['ghost', !evidenceState.possibleGhosts.includes(ghost) && 'transparent']"
+        v-for="{ name } in ghosts"
+        :key="name"
+        :class="['ghost', !evidenceState.possibleGhosts.includes(name) && 'transparent']"
       >
-        {{ ghost }}
+        {{ name }}
       </div>
     </div>
   </div>
