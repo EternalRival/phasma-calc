@@ -8,7 +8,7 @@ const DEFAULT_DIFFICULTY_INDEX = 1
 const ghostEvidencesMap = new Map(ghosts.map((ghost) => [ghost.name, ghost.evidences]))
 
 export const useEvidencesStore = defineStore('evidences', () => {
-  const difficulty = ref(difficulties[DEFAULT_DIFFICULTY_INDEX])
+  const difficulty = ref(difficulties[DEFAULT_DIFFICULTY_INDEX].name)
 
   const evidencesList = ref<Record<string, EvidenceStatus>>(
     Object.fromEntries(evidences.map((evidence) => [evidence, EvidenceStatus.neutral])),

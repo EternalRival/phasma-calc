@@ -21,7 +21,7 @@ const evidencesStore = useEvidencesStore()
                 : EvidenceStatus.neutral
           })
         "
-        @contextmenu.prevent="
+        @click.right.prevent="
           evidencesStore.$patch((state) => {
             state.evidences[evidence] =
               state.evidences[evidence] !== EvidenceStatus.negative

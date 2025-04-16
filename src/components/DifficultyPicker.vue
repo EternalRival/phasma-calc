@@ -10,13 +10,13 @@ const evidencesStore = useEvidencesStore()
     <div class="label">Сложность</div>
     <div class="difference-list">
       <button
-        v-for="(difficulty, i) in difficulties"
-        :class="['difference-button', evidencesStore.difficulty === difficulty && 'selected']"
-        @click="evidencesStore.$patch({ difficulty })"
+        v-for="({ name }, i) in difficulties"
+        :class="['difference-button', evidencesStore.difficulty === name && 'selected']"
+        @click="evidencesStore.$patch({ difficulty: name })"
         :disabled="i > 2"
-        :key="difficulty"
+        :key="name"
       >
-        {{ difficulty }}
+        {{ name }}
       </button>
     </div>
   </div>

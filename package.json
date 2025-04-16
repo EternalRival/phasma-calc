@@ -10,7 +10,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "fix": "npm run type-check && npm run lint && npm run format"
   },
   "dependencies": {
     "modern-normalize": "^3.0.1",
