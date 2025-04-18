@@ -12,14 +12,13 @@ await callOnce(async () => {
   evidences.value = Object.fromEntries(evidenceNames.map((evidence) => [evidence, EvidenceStatus.neutral]));
 });
 
+useSeoMeta({
+  ogImage: "/favicon.ico",
+});
+
 useHead({
-  title: "Phasma Calc",
-  meta: [
-    { name: "author", content: "EternalRival" },
-    { name: "description", content: "Калькулятор для Phasmophobia." },
-    { name: "og:description", content: "Калькулятор для Phasmophobia!" },
-    { name: "og:image", content: "https://er-phasma-calc.netlify.app/favicon.ico" },
-  ],
+  htmlAttrs: { lang: "ru" },
+  link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
 });
 </script>
 
