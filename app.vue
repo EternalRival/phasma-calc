@@ -14,6 +14,12 @@ await callOnce(async () => {
 
 useHead({
   title: "Phasma Calc",
+  meta: [
+    { name: "author", content: "EternalRival" },
+    { name: "description", content: "Калькулятор для Phasmophobia." },
+    { name: "og:description", content: "Калькулятор для Phasmophobia!" },
+    { name: "og:image", content: "https://er-phasma-calc.netlify.app/favicon.ico" },
+  ],
 });
 </script>
 
