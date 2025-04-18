@@ -13,7 +13,7 @@ await callOnce(async () => {
 });
 
 useSeoMeta({
-  ogImage: "/favicon.ico",
+  ogImage: "/og-image.webp",
 });
 
 useHead({
