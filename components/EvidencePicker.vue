@@ -16,7 +16,7 @@ const evidences = useEvidences();
           evidences[evidence] =
             evidences[evidence] !== EvidenceStatus.positive ? EvidenceStatus.positive : EvidenceStatus.neutral
         "
-        @click.right.prevent="
+        @contextmenu.prevent="
           evidences[evidence] =
             evidences[evidence] !== EvidenceStatus.negative ? EvidenceStatus.negative : EvidenceStatus.neutral
         "
