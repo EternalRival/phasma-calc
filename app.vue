@@ -1,31 +1,23 @@
 <script setup lang="ts">
-import { getGhostEvidencesData } from "~/composables/get-ghost-evidences-data";
-import { EvidenceStatus } from "~/utils/evidence-status";
-
-const difficulty = useDifficulty();
-const evidences = useEvidences();
+const difficulty = useDifficulty()
+const evidences = useEvidences()
 
 await callOnce(async () => {
-  const { difficulties, evidences: evidenceNames } = getGhostEvidencesData();
+  const { difficulties, evidences: evidenceNames } = getGhostEvidencesData()
 
-  difficulty.value = difficulties[1].name;
-  evidences.value = Object.fromEntries(evidenceNames.map((evidence) => [evidence, EvidenceStatus.neutral]));
-});
+  difficulty.value = difficulties[1].name
+  evidences.value = Object.fromEntries(
+    evidenceNames.map((evidence) => [evidence, EvidenceStatus.neutral])
+  )
+})
 
-useSeoMeta({
-  ogImage: "/og-image.webp",
-});
-
-useHead({
-  htmlAttrs: { lang: "ru" },
-  link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-});
+useSeo()
 </script>
 
 <template>
   <div class="app">
     <main class="main">
-      <h1 class="heading">Phasma Calc</h1>
+      <h1 class="heading"> Phasma Calc </h1>
       <div class="content-wrapper">
         <DifficultyPicker />
         <EvidencePicker />
@@ -39,7 +31,7 @@ useHead({
 @property --glare-color {
   inherits: false;
   initial-value: transparent;
-  syntax: "<color>";
+  syntax: '<color>';
 }
 
 .app {
@@ -53,7 +45,7 @@ useHead({
 
   font-family: Inter, sans-serif;
 
-  background-image: url("~/assets/background.webp");
+  background-image: url('~/assets/background.webp');
   background-size: cover;
 }
 

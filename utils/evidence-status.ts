@@ -1,9 +1,7 @@
 export const EvidenceStatus = {
-  positive: "positive",
-  negative: "negative",
-  neutral: "neutral",
-} as const;
+  positive: 'positive',
+  negative: 'negative',
+  neutral: 'neutral',
+} as const
 
-export type EvidenceStatus = (typeof EvidenceStatus)[keyof typeof EvidenceStatus];
-
-export default EvidenceStatus;
+export type EvidenceStatus = (typeof EvidenceStatus)[keyof typeof EvidenceStatus]

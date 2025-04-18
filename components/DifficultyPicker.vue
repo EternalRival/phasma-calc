@@ -1,12 +1,13 @@
 <script setup lang="ts">
-const { difficulties } = getGhostEvidencesData();
+const { difficulties } = getGhostEvidencesData()
 
-const difficulty = useDifficulty();
+const difficulty = useDifficulty()
 </script>
 
 <template>
   <div>
     <div class="label">Сложность</div>
+
     <div class="difference-list">
       <button
         v-for="({ name }, i) in difficulties"
@@ -53,7 +54,12 @@ const difficulty = useDifficulty();
   font-size: 9px;
 
   background-color: #ffffff80;
-  background-image: linear-gradient(to left top, transparent 25%, var(--glare-color) 50%, transparent 75%);
+  background-image: linear-gradient(
+    to left top,
+    transparent 25%,
+    var(--glare-color) 50%,
+    transparent 75%
+  );
 
   transition-duration: 0.3s;
   transition-property: --glare-color, background-color;

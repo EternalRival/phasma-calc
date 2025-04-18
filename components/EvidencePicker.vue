@@ -1,12 +1,13 @@
 <script setup lang="ts">
-const { evidences: evidencesOrdered } = getGhostEvidencesData();
+const { evidences: evidencesOrdered } = getGhostEvidencesData()
 
-const evidences = useEvidences();
+const evidences = useEvidences()
 </script>
 
 <template>
   <div>
     <div class="label">Улики</div>
+
     <div class="evidences">
       <button
         v-for="evidence in evidencesOrdered"
@@ -14,11 +15,15 @@ const evidences = useEvidences();
         :class="['evidence', evidences[evidence]]"
         @click="
           evidences[evidence] =
-            evidences[evidence] !== EvidenceStatus.positive ? EvidenceStatus.positive : EvidenceStatus.neutral
+            evidences[evidence] !== EvidenceStatus.positive
+              ? EvidenceStatus.positive
+              : EvidenceStatus.neutral
         "
         @contextmenu.prevent="
           evidences[evidence] =
-            evidences[evidence] !== EvidenceStatus.negative ? EvidenceStatus.negative : EvidenceStatus.neutral
+            evidences[evidence] !== EvidenceStatus.negative
+              ? EvidenceStatus.negative
+              : EvidenceStatus.neutral
         "
       >
         {{ evidence }}
@@ -55,7 +60,12 @@ const evidences = useEvidences();
   font-size: 9px;
 
   background-color: #ffffff80;
-  background-image: linear-gradient(to left top, transparent 25%, var(--glare-color) 50%, transparent 75%);
+  background-image: linear-gradient(
+    to left top,
+    transparent 25%,
+    var(--glare-color) 50%,
+    transparent 75%
+  );
 
   transition-duration: 0.3s;
   transition-property: --glare-color, background-color;

@@ -1,31 +1,20 @@
 <script setup lang="ts">
-const {ghosts} = getGhostEvidencesData();
+const { ghosts } = getGhostEvidencesData()
 
-const evidencesList = useEvidences();
+const evidences = useEvidences()
 
-const ghostEvidencesMap = new Map (ghosts.map(ghost=>[ghost.name,ghost.evidences]))
-
-const possibleGhosts = computed(() => {
-  const possibleGhostsMap = new Map(ghostEvidencesMap);
-
-  Object.entries(evidencesList.value).forEach(([evidence, evidenceStatus]) => {
-    possibleGhostsMap.forEach((evidences, ghost) => {
-      const hasEvidence = evidences.includes(evidence);
-
-      if (evidenceStatus === EvidenceStatus[hasEvidence ? 'negative' : 'positive']) {
-        possibleGhostsMap.delete(ghost);
-      }
-    });
-  });
-
-  return Array.from(possibleGhostsMap.keys());
-});
-
+const possibleGhosts = computed(() =>
+  getPossibleGhosts(
+    ghosts.map(({ name, evidences }) => [name, evidences]),
+    Object.entries(evidences.value)
+  )
+)
 </script>
 
 <template>
   <div>
     <div class="label">Призраки</div>
+
     <div class="ghosts">
       <div
         v-for="{ name } in ghosts"
