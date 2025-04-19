@@ -13,7 +13,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint ."
+    "lint": "eslint . --fix",
+    "format": "prettier -luw .",
+    "fix": "npm run lint && npm run format"
   },
   "dependencies": {
     "@nuxt/eslint": "^1.3.0",
